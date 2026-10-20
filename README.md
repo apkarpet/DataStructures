@@ -1,8 +1,8 @@
 # Data Structures
 
-This repository contains coursework and programming exercises for a Data
-Structures course. The implementations are primarily written in C, with one
-Python utility for generating expressions used by the first exercise set.
+This repository contains coursework and programming exercises for my Data
+Structures University course. The implementations are primarily written in C, with one
+Python utility for generating expressions used by the first exercise set. The project was graded a 9.5/10.
 
 ## Contents
 
