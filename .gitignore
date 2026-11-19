@@ -1,0 +1,8 @@
+build/
+*.o
+*.exe
+a.out
+set1/askisi[0-9]
+set2/part1/ex[0-9]
+set2/part2/ex[a-c]
+set2/part2/final

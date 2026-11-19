@@ -4,6 +4,60 @@ This repository contains coursework and programming exercises for my Data
 Structures University course. The implementations are primarily written in C, with one
 Python utility for generating expressions used by the first exercise set. The project was graded a 9.5/10.
 
+## Highlights
+
+- Sorting 111,438 real trade records (Stats NZ, *Effects of COVID-19 on trade*) with merge,
+  counting, quick and heap sort, timed side by side.
+- Binary, interpolation and binary interpolation search (BIS) on dates, including a
+  multithreaded race between BIS variants with POSIX threads.
+- An AVL tree and a hash table with chaining over the same dataset: search, modify,
+  delete, in-order listing and min/max queries.
+- A stack-based checker for bracketed expressions, with a Python generator for test cases.
+
+## Demo
+
+```text
+$ ./build.sh
+$ cd "final/PART I" && ../../build/part1_ex1
+Successfully loaded 111438 records.
+--- Experimental Comparison for 111438 Records ---
+Merge Sort time: 0.099071 seconds
+Counting Sort: Range too large (max: 67180000000). Skipping for safety.
+
+$ ../../build/part1_ex2
+Successfully loaded 111438 records.
+Starting sorting for 111438 records (Field: Value):
+Heap Sort: 0.029195 seconds
+Quick Sort: 0.537383 seconds
+
+$ cd "../PART II" && ../../build/part2_final
+Main Menu
+1. BST Structure (AVL Tree)
+2. Hash Table (Hashing)
+3. EXIT
+Select : 2
+
+--- Hashing Menu (m = 11) ---
+1. Search Value
+2. Modify Value
+3. Delete Registration
+4. <<< BACK
+Select : 1
+Give a date (DD/MM/YYYY): 15/06/2020
+Result: 85000000
+
+$ cd ../../set1 && ../build/set1_askisi1
+--- EXPRESSION CHECKER WITH STACK ---
+
+GIVE THE EXPRESSION (type 'EXIT' to quit): {[(2+3)*4]-1}
+Result: 1 (The expression is CORRECT)
+
+GIVE THE EXPRESSION (type 'EXIT' to quit): (2+[3*4)]
+Result: 0 (The expression is WRONG)
+```
+
+Timings are from one run on a laptop and will differ on yours.
+
 ## Contents
 
 ### `set1`
@@ -20,8 +74,6 @@ Fundamental data-structure exercises:
 - `generator.py` - generates valid and invalid arithmetic expressions for
   testing `askisi1`.
 - `PROJECT1_1108254_1115507.docx` - project documentation.
-
-The `askisi1` file without an extension is a precompiled executable.
 
 ### `set2`
 
@@ -40,8 +92,6 @@ Exercises based on the supplied COVID-19 trade dataset:
 Each `part1` and `part2` directory includes the CSV file expected by its
 programs. `part1/ex2.c` looks for `test_data.csv`; if it is not available,
 create or rename a compatible copy of the included dataset before running it.
-The `ex4` and `final` files without extensions are precompiled executables.
-
 ### `final`
 
 The final submitted versions are organized into:
@@ -64,7 +114,8 @@ programs.
 
 ## Building and running
 
-Compile a program from the directory containing its source and, when
+The quickest way is `./build.sh`, which compiles every program into `build/`. Run each one
+from the folder that holds its CSV file, as in the demo above. To build one by hand, compile it from the directory containing its source and, when
 applicable, its CSV input. For example:
 
 ```sh
